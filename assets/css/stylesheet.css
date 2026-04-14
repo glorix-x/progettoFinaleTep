@@ -6,7 +6,7 @@ body {
     font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
     background-color: #B0E4CC;
 }
-#titolo {
+#title_container {
     background-color: #B0E4CC;
     height: fit-content;
     text-align: center;

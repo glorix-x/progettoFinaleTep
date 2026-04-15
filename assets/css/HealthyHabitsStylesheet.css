@@ -1,0 +1,61 @@
+#content {
+
+}
+
+#survey {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 20px;
+}
+
+#choices_box {
+    display: flex;
+    flex-direction: column;
+    row-gap: 20px;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+
+#emoji {
+    margin: 0;
+    font-size: 80px;
+}
+
+.choice_row {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    width: 50%;
+}
+
+.choice {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    row-gap: 20%;
+    border: solid black 3px;
+    border-radius: 10px;
+    min-height: fit-content;
+    min-width: fit-content;
+    height: 30px;
+    width: 15%;
+    padding: 1%;
+    transition: transform 1s ease;
+}
+
+.choice:hover {
+    transform: scale(1.2);
+}
+
+#next_btn {
+    margin-top: 20px;
+    font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    font-size: 2rem;
+    border: solid black 5px;
+    border-radius: 15px;
+    background-color: green;
+    font-weight: bold;
+}

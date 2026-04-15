@@ -20,6 +20,4 @@ body {
 }
 #content {
     background-color: #B0E4CC;
-    display: flex;
-    flex-direction: row;
 }

@@ -60,7 +60,7 @@ for(let op of punteggi) {
 
 let current_question = 0
 const opzioni_per_riga = 3
-let radioBtns = []
+let choices = []
 let score = 0
 let previous_score = 0
 
@@ -85,11 +85,22 @@ function barAnimation(timestamp) {
     }
 }
 
+function choose(btn_to_check) {
+    for(let btn of choices) {
+        if(btn.checked) {
+            btn.checked = false
+            btn.button.classList.remove("chosen")
+        }
+    }
+    btn_to_check.checked = true
+    btn_to_check.button.classList.add("chosen")
+}
+
 function nextQuestion() {
     previous_score = score
 
     if(current_question != 0) {
-        for(let btn of radioBtns) {
+        for(let btn of choices) {
             if(btn.checked) {
                 score += parseInt(btn.value)
                 break;
@@ -103,7 +114,7 @@ function nextQuestion() {
     if(current_question >= domande.length) {
         resocontoFinale()
     } else {
-        radioBtns = []
+        choices = []
         document.getElementById("domanda").innerText = domande[current_question]
         document.getElementById("emoji").innerText = imgs[current_question]
         let n = 0
@@ -119,16 +130,17 @@ function nextQuestion() {
 
             div.appendChild(document.createTextNode(str))
 
-            let radioButton = document.createElement("input")
-            radioButton.classList.add("radio_choice")
-            radioButton.type = "radio"
-            radioButton.name = "choice"
             let index = opzioni[current_question].indexOf(str)
-            radioButton.value = punteggi[current_question][index]
 
-            radioBtns.push(radioButton)
-            
-            div.appendChild(radioButton)
+            let btn = {
+                button: div,
+                value: punteggi[current_question][index],
+                checked: false,
+            }
+
+            div.addEventListener("click", () => choose(btn))
+
+            choices.push(btn)
             
             row.appendChild(div)
             n++
@@ -139,12 +151,13 @@ function nextQuestion() {
             }
         }
         choices_box.appendChild(row)
-        radioBtns[0].checked = true
+        choose(choices[0])
         current_question++
     }
 }
 
 function reset() {
+    document.getElementById("resoconto").innerText = ""
     current_question = 0
     score = 0
     next_btn.innerText = "Prossimo"

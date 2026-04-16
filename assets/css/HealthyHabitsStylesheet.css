@@ -54,8 +54,22 @@
     margin-top: 20px;
     font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
     font-size: 2rem;
-    border: solid black 5px;
+    border: solid black 3px;
     border-radius: 15px;
     background-color: green;
-    font-weight: bold;
+}
+
+#barra_salute_box {
+    width: 30%;
+    height: 20px;
+    border-radius: 20px;
+    border: solid black 2px;
+    overflow: hidden;
+}
+
+#barra_salute {
+    background-color: red;
+    /*border-radius: 20px;*/
+    width: 0%;
+    height: 100%;
 }

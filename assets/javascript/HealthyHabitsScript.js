@@ -5,7 +5,7 @@ const imgs = [
     "🍔",
     "💧",
     "😖",
-    "🚬",
+    "🚬🍷",
     "🪑",
     "📱",
 ]
@@ -15,23 +15,23 @@ const opzioni = [
     ["Mai", "1 - 2 volte", "3 - 4 volte", "5 o più volte"],
     ["Nessuna", "1 - 2 porzioni", "3 - 4 porzioni", "5 o più porzioni"],
     ["Mai", "1 - 2 volte", "3 - 5 volte", "Quasi ogni giorno"],
-    ["Meno di un litro", "1 - 1.5 litri", "1.5 - 2 litri", "Più di 2 litri"],
-    ["Per niente", "Poco", "Moderatamente", "Molto", "Estremamente"],
-    ["Mai", "Occasionalmente", "1 - 2 volte a settimana", "Più volte a settimana"],
+    ["Meno di 1 litro", "1 - 1.5 litri", "1.5 - 2 litri", "Più di 2 litri"],
+    ["Per niente", "Poco", "In modo moderato", "Molto", "Moltissimo"],
+    ["Mai", "Raramente", "1 - 2 volte a settimana", "Più volte a settimana"],
     ["Meno di 4 ore", "4 - 6 ore", "6 - 8 ore", "Più di 8 ore"],
     ["Meno di 1 ora", "1 - 2 ore", "3 - 4 ore", "Più di 4 ore"],
 ]
 
 const punteggi = [
-    [0, 1, 2, 3, 4],
-    [0, 1, 2, 3],
-    [0, 1, 2, 3],
-    [3, 2, 1, 0],
-    [0, 1, 2, 3],
-    [4, 3, 2, 1, 0],
-    [3, 2, 1, 0],
-    [3, 2, 1, 0],
-    [3, 2, 1, 0],
+    [1, 2, 3, 4, 5],
+    [1, 2, 3, 4],
+    [1, 2, 3, 4],
+    [4, 3, 2, 1],
+    [1, 2, 3, 4],
+    [5, 4, 3, 2, 1],
+    [4, 3, 2, 1],
+    [4, 3, 2, 1],
+    [4, 3, 2, 1],
 ]
 
 const domande = [
@@ -77,8 +77,10 @@ function barAnimation(timestamp) {
     let tempo_passato = timestamp - inizio
     let progresso = tempo_passato / durata
 
-    document.getElementById("barra_salute").style.width = (previous_score + (score - previous_score) * progresso) / punteggio_max * 100 + "%"
-    document.getElementById("barra_salute").style.background = `rgb(${255 - (previous_score + (score - previous_score) * progresso) / punteggio_max * 255}, ${(previous_score + (score - previous_score) * progresso) / punteggio_max * 255}, 0)`
+    let intermediate_score = previous_score + (score - previous_score) * progresso
+
+    document.getElementById("barra_salute").style.width = intermediate_score / punteggio_max * 100 + "%"
+    document.getElementById("barra_salute").style.background = `rgb(${255 - intermediate_score / punteggio_max * 255}, ${intermediate_score / punteggio_max * 255}, 0)`
 
     if(progresso < 1) {
         requestAnimationFrame(barAnimation)

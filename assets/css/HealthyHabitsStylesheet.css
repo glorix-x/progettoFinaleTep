@@ -76,6 +76,16 @@ button {
     border: solid black 0.3vw;
     border-radius: 1.2vw;
     background-color: #408A71;
+    transition: transform 0.3s ease;
+}
+
+#next_btn:hover {
+    background-color: hsl(160, 50%, 40%);
+    transform: scale(1.1);
+}
+
+#next_btn:active {
+    background-color: hsl(160, 60%, 40%);
 }
 
 #barra_salute_box {

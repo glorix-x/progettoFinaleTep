@@ -3,21 +3,89 @@ body {
     flex-direction: column;
     color: #091413;
     font-size: 20px;
-    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    font-family: fantasy, Cochin, Georgia, Times, "Times New Roman", serif;
     background-color: #B0E4CC;
 }
+
 #title_container {
     background-color: #B0E4CC;
-    height: fit-content;
-    text-align: center;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 2%;
 }
-#navBar {
+button{
+    border: #091413;
     background-color: #408A71;
-    height: 90px;
     border-radius: 20px;
-    font-weight: bold;
-    text-align: center;
+    padding: 1%;
 }
+
 #content {
     background-color: #B0E4CC;
+    padding: 20px;
+    display: flex;
+    flex-direction: row;
+    margin: 2%;
+}
+.ciccio{
+    display: block;
+    width: 100%;
+    max-width: 100%;
+    border-radius: 20px;
+}
+.navBar {
+    background-color: #285A48;
+    border-radius: 20px;
+    margin: 0 2%;
+    overflow: visible;
+}
+.menu {
+    list-style: none;
+    display: flex;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+.menu > li {
+    flex: 1;
+    position: relative;
+    text-align: center;
+}
+
+.menu a {
+    display: block;
+    width: 100%;
+    color: black;
+    padding: 15px 0;
+    text-decoration: none;
+}
+
+.menu a:hover {
+    background-color: #408A71;
+    border-radius: 20px;
+}
+
+.subMenu {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    min-width: 100%;
+    background-color: #285A48;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    z-index: 1000;
+    border-radius: 20px;
+}
+.subMenu li {
+    width: 94%;
+}
+.subMenu a {
+    padding: 12px 15px;
+}
+.dropdown:hover .subMenu {
+    display: block;
 }

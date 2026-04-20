@@ -1,38 +1,63 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Healthy habits</title>
-        <link rel="stylesheet" href="../css/stylesheet.css">
-        <link rel="stylesheet" href="../css/HealthyHabitsStylesheet.css">
-    </head>
-    <body>
-        <div id="title_container">
-            TITOLO
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Healthy habits</title>
+    <link rel="stylesheet" href="../css/stylesheet.css">
+    <link rel="stylesheet" href="../css/HealthyHabitsStylesheet.css">
+</head>
+
+<body>
+    <div id="title_container">
+        <h1>HEALTHY HABITS</h1>
+        <div class="buttoni">
+            <div>
+                <button  class="registrati" onclick="location.href='assets/pages/login.html';"> Login </button>
+            </div> 
+            <div>
+                <button  class="registrati" onclick="location.href='assets/pages/registrati.html';"> Sign in </button> 
+            </div>
         </div>
-        <div id="navBar">
+    </div>
+    <nav class="navBar">
+        <ul class="menu">
+            <li><a href="../../index.html">Home</a></li>
+
+            <li><a href="spiegazione.html">Chi Siamo</a></li>
+
+            <li class="dropdown">
+                <a href="#">Servizi ▼</a>
+                <ul class="subMenu">
+                    <li><a href="healthyHabits.html">Healthy Habits</a></li>
+                    <li><a href="workout.html">Workout</a></li>
+                    <li><a href="bmiCalculator.html">BMI Calculator</a></li>
+                </ul>
+            </li>
+        </ul>
+    </nav>
+    </div>
+    <div id="content">
+        <p id="titolo_barra">Indice salute:</p>
+        <div id="barra_salute_box">
+            <div id="barra_salute"></div>
+        </div>
+        <div id="survey">
+            <p id="emoji"></p>
+            <p id="domanda"></p>
+            <div id="choices_box">
+
+            </div>
+            <button id="next_btn" class="main_btn">
+                Prossimo
+            </button>
+        </div>
+        <div id="resoconto">
 
         </div>
-        <div id="content">
-            <p id="titolo_barra">Indice salute:</p>
-            <div id="barra_salute_box">
-                <div id="barra_salute"></div>
-            </div>
-            <div id="survey">
-                <p id="emoji"></p>
-                <p id="domanda"></p>
-                <div id="choices_box">
-                    
-                </div>
-                <button id="next_btn" class="main_btn">
-                    Prossimo
-                </button>
-            </div>
-            <div id="resoconto">
-                
-            </div>
-        </div>
-        <script src="../javascript/HealthyHabitsScript.js"></script>
-    </body>
+    </div>
+    <script src="../javascript/HealthyHabitsScript.js"></script>
+</body>
+
 </html>

@@ -1,20 +1,45 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Esercizi Workout</title>
-        <link rel="stylesheet" href="../css/stylesheet.css">
-    </head>
-    <body>
-        <div id="title_container">
-            TITOLO
-        </div>
-        <div id="navBar">
 
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Esercizi Workout</title>
+    <link rel="stylesheet" href="../css/stylesheet.css">
+</head>
+
+<body>
+    <div id="title_container">
+        <h1>HEALTHY HABITS</h1>
+        <div class="buttoni">
+            <div>
+                <button  class="registrati" onclick="location.href='assets/pages/login.html';"> Login </button>
+            </div> 
+            <div>
+                <button  class="registrati" onclick="location.href='assets/pages/registrati.html';"> Sign in </button> 
+            </div>
         </div>
-        <div id="content">
-            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Voluptates fugiat dolorum soluta quo sit velit accusantium deleniti quae cupiditate id dicta, harum illum quidem nisi voluptas quaerat, vel, optio similique!
-        </div>
-    </body>
+    </div>
+    <nav class="navBar">
+        <ul class="menu">
+            <li><a href="../../index.html">Home</a></li>
+
+            <li><a href="spiegazione.html">Chi Siamo</a></li>
+
+            <li class="dropdown">
+                <a href="#">Servizi ▼</a>
+                <ul class="subMenu">
+                    <li><a href="healthyHabits.html">Healthy Habits</a></li>
+                    <li><a href="workout.html">Workout</a></li>
+                    <li><a href="bmiCalculator.html">BMI Calculator</a></li>
+                </ul>
+            </li>
+        </ul>
+    </nav>
+    <div id="content">
+        Lorem ipsum dolor sit amet consectetur, adipisicing elit. Voluptates fugiat dolorum soluta quo sit velit
+        accusantium deleniti quae cupiditate id dicta, harum illum quidem nisi voluptas quaerat, vel, optio similique!
+    </div>
+</body>
+
 </html>

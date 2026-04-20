@@ -151,7 +151,7 @@ button {
 
 #text_punteggio {
     text-align: center;
-    font-size: 45px;
+    font-size: max(35px, 4vw);
     margin: 0;
 }
 
@@ -168,8 +168,13 @@ button {
 }
 
 #text_suggerimenti {
-    font-size: 25px;
+    font-size: max(18px, 1.6vw);
     margin: 5px 0 0 0;
+}
+
+#text_suggerimenti.centered {
+    text-align: center;
+    margin: 0;
 }
 
 @media (max-width: 660px) {

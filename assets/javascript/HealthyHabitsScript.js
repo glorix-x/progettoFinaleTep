@@ -105,13 +105,7 @@ for(let domanda of questionario) {
 let punteggio_max = 0
 
 for(let domanda of questionario) {
-    let max = 0
-    for(let p of domanda.punteggi) {
-        if(p > max) {
-            max = p
-        }
-    }
-    punteggio_max += max
+    punteggio_max += Math.max(...domanda.punteggi)
 }
 
 let current_question = 0
@@ -206,7 +200,7 @@ function nextQuestion() {
             
             row.appendChild(div)
             n++
-            if(n % 3 == 0) {
+            if(n % opzioni_per_riga == 0) {
                 choices_box.appendChild(row)
                 row = document.createElement("div")
                 row.classList.add("choice_row")
@@ -254,7 +248,7 @@ function resocontoFinale() {
     let box_suggerimenti = document.createElement("div")
     let text_punteggio = document.createElement("p")
     text_punteggio.id = "text_punteggio"
-    text_punteggio.innerHTML = "Punteggio:\n" + `<span id="punteggio">${parseInt(score / punteggio_max * 100)}</span>` + "/100"
+    text_punteggio.innerHTML = "Punteggio:" + `<span id="punteggio">${parseInt(score / punteggio_max * 100)}</span>` + "/100"
 
     box_suggerimenti.appendChild(text_punteggio)
 
@@ -265,14 +259,17 @@ function resocontoFinale() {
         }
     }
 
-    let text_suggerimenti = document.createElement("ul")
-    text_suggerimenti.id = "text_suggerimenti"
+    let text_suggerimenti
     if(s != "") {
+        text_suggerimenti = document.createElement("ul")
         text_suggerimenti.innerHTML = s
     } else {
-        text_suggerimenti.innerText = "Non c'è niente da migliorare"
+        text_suggerimenti = document.createElement("p")
+        text_suggerimenti.classList.add("centered")
+        text_suggerimenti.innerText = "Hai uno stile di vita piuttosto salutare"
     }
-
+    text_suggerimenti.id = "text_suggerimenti"
+    
     box_suggerimenti.appendChild(text_suggerimenti)
 
     box_resoconto.appendChild(box_suggerimenti)
@@ -287,12 +284,9 @@ function resocontoFinale() {
 
     let span = document.getElementById("punteggio")
 
-    console.log(score / punteggio_max)
-    console.log(punteggio_max / 3)
-
-    if(score < punteggio_max / 3) {
+    if(score / punteggio_max * 100 < 40) {
         span.classList.add("basso")
-    } else if(score < punteggio_max / 3 * 2) {
+    } else if(score / punteggio_max * 100 < 60) {
         span.classList.add("medio")
     } else {
         span.classList.add("ottimo")

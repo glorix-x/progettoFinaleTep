@@ -83,9 +83,9 @@
     width: max(16.6px, 2.5%);
     left: 50%;
     top: 50%;
-    transition: transform 2s ease;
+    transition: transform 1.5s ease;
     transform-origin: 50% 90%;
-    transform: translate(-60%, -50%) rotate(-90deg);
+    transform: translate(-60%, -47%) rotate(-90deg);
 }
 
 #BMI_value {

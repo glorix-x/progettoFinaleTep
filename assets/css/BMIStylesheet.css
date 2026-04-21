@@ -26,17 +26,69 @@
 
 }
 
-#tachimetro {
-    width: 30%;
+#box_tachimetro {
+    position: relative;
+    width: 100%;
+    height: max(220px, 18vw);
+}
+
+.indice_tachimetro {
     position: absolute;
-    left: 35%;
+    top: 50%;
+    left: 50%;
+    font-size: max(15px, 2vw);
+    margin: 0;
+}
+
+#i_15.indice_tachimetro {
+    transform: translate(-850%, 140%);
+    color: #009FB5;
+}
+
+#i_20.indice_tachimetro {
+    transform: translate(-640%, -190%);
+    color: #00B518;
+}
+
+#i_25.indice_tachimetro {
+    transform: translate(-280%, -390%);
+    color: #FFCF01;
+}
+
+#i_30.indice_tachimetro {
+    transform: translate(190%, -390%);
+    color: #B56922;
+}
+
+#i_35.indice_tachimetro {
+    transform: translate(500%, -190%);
+    color: #B22C00;
+}
+
+#i_40.indice_tachimetro {
+    transform: translate(650%, 140%);
+    color: #B20200;
+}
+
+#tachimetro {
+    position: absolute;
+    width: max(200px, 30%);
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
 }
 
 #lancetta_tachimetro {
     position: absolute;
-    width: 2.5%;
-    left: 48.5%;
+    width: max(16.6px, 2.5%);
+    left: 50%;
+    top: 50%;
     transition: transform 2s ease;
     transform-origin: 50% 90%;
-    transform: translate(-10%, 18%) rotate(-90deg);
+    transform: translate(-60%, -50%) rotate(-90deg);
+}
+
+#BMI_value {
+    margin: 0;
+    font-size: 2vw;
 }

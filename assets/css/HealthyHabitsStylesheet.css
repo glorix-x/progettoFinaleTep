@@ -96,7 +96,7 @@ button {
 }
 
 #titolo_barra {
-    font-size: 40px;
+    font-size: max(25px, min(4vw, 40px));
     margin: 5px 0 5px 0;
     text-transform: uppercase;
     font-weight: bold;

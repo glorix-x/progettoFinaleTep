@@ -114,14 +114,12 @@ let choices = []
 let score = 0
 let previous_score = 0
 
-let inizio = null
-
 let next_btn = document.getElementById("next_btn")
 next_btn.addEventListener("click", nextQuestion)
 
 let restart_btn = document.createElement("button")
 
-function barAnimation(barra, score, previous_score, punteggio_max, durata, timestamp) {
+function barAnimation(inizio, barra, score, previous_score, punteggio_max, durata, timestamp) {
     if(inizio == null) {
         inizio = timestamp
     }
@@ -135,7 +133,7 @@ function barAnimation(barra, score, previous_score, punteggio_max, durata, times
     barra.style.background = `rgb(${255 - intermediate_score / punteggio_max * 255}, ${intermediate_score / punteggio_max * 255}, 0)`
 
     if(progresso < 1) {
-        requestAnimationFrame((timestamp) => barAnimation(barra, score, previous_score, punteggio_max, durata, timestamp))
+        requestAnimationFrame((timestamp) => barAnimation(inizio, barra, score, previous_score, punteggio_max, durata, timestamp))
     }
 }
 
@@ -164,8 +162,7 @@ function nextQuestion() {
         }
     }
 
-    inizio = null
-    requestAnimationFrame((timestamp) => barAnimation(document.getElementById("barra_salute"), score, previous_score, punteggio_max, 500, timestamp))
+    requestAnimationFrame((timestamp) => barAnimation(null, document.getElementById("barra_salute"), score, previous_score, punteggio_max, 500, timestamp))
 
     if(current_question >= questionario.length) {
         resocontoFinale()
@@ -242,7 +239,7 @@ function resocontoFinale() {
         div.appendChild(box_barra)
         box_resoconto.appendChild(div)
 
-        requestAnimationFrame((timestamp) => barAnimation(barra, punteggio_per_categoria[categoria], 0, punteggio_max_per_categoria[categoria], 1000, timestamp))
+        requestAnimationFrame((timestamp) => barAnimation(null, barra, punteggio_per_categoria[categoria], 0, punteggio_max_per_categoria[categoria], 1000, timestamp))
     }
 
     let box_suggerimenti = document.createElement("div")

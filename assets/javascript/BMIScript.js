@@ -7,20 +7,47 @@ weight_input.addEventListener("input", calcoloBMI)
 const min_BMI = 15
 const max_BMI = 40
 
+const regex = /^[0-9]+(\.[0-9]+)?$/
+
 const ampiezza_tachimetro = max_BMI - min_BMI
 const rotazione_iniziale = -90
 
+let BMI_precedente = -1
+let BMI = 15
+
 function calcoloBMI() {
-    if(isNaN(parseFloat(height_input.value)) || isNaN(parseFloat(weight_input.value))) {
+    if(!regex.test(height_input.value) || !regex.test(weight_input.value)) {
+        document.getElementById("lancetta_tachimetro").style.transform = `translate(-60%, -50%) rotate(${rotazione_iniziale}deg)`
+        document.getElementById("BMI_value").innerText = "--"
+        BMI = 15
         return
     }
 
-    let BMI = parseFloat(weight_input.value) / Math.pow(parseFloat(height_input.value), 2)
+    BMI_precedente = BMI
+
+    BMI = parseFloat(weight_input.value) / Math.pow(parseFloat(height_input.value), 2)
 
     BMI = Math.max(min_BMI, BMI)
     BMI = Math.min(max_BMI, BMI)
 
-    console.log(BMI)
+    requestAnimationFrame((timestamp) => animazioneValoreBMI(null, document.getElementById("BMI_value"), 2000, BMI_precedente, BMI, timestamp))
 
-    document.getElementById("lancetta_tachimetro").style.transform = `translate(-10%, 18%) rotate(${(BMI - min_BMI) / ampiezza_tachimetro * 180 + rotazione_iniziale}deg)`
+    document.getElementById("lancetta_tachimetro").style.transform = `translate(-60%, -50%) rotate(${(BMI - min_BMI) / ampiezza_tachimetro * 180 + rotazione_iniziale}deg)`
+}
+
+function animazioneValoreBMI(inizio, tagNum, durata, valorePrecedente, nuovoValore, timestamp) {
+    if(inizio == null) {
+        inizio = timestamp
+    }
+
+    let tempo_passato = timestamp - inizio
+    let progresso = tempo_passato / durata
+
+    let num = valorePrecedente + (nuovoValore - valorePrecedente) * progresso
+    num = num.toFixed(1)
+
+    tagNum.innerText = num
+    if(progresso < 1) {
+        requestAnimationFrame((timestamp) => animazioneValoreBMI(inizio, tagNum, durata, valorePrecedente, nuovoValore, timestamp))
+    }
 }

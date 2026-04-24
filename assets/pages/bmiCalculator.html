@@ -38,16 +38,14 @@
     <div id="content">
         <div id="box_inserimenti">
             <div class="box_inserimento">
-                <label for="input_altezza" class="label_input">
-                    Altezza:
-                </label>
-                <input type="text" id="input_altezza" class="textBox_input">
+                <input required type="text" id="input_altezza" class="textBox_input">
+                <span>Altezza</span>
+                <i></i>
             </div>
             <div class="box_inserimento">
-                <label for="input_peso" class="label_input">
-                    Peso:
-                </label>
-                <input type="text" id="input_peso" class="textBox_input">
+                <input required type="text" id="input_peso" class="textBox_input">
+                <span>Peso</span>
+                <i></i>
             </div>
         </div>
         <div id="box_tachimetro">
@@ -63,6 +61,16 @@
         <p id="BMI_value">
             --
         </p>
+        <div id="information_box">
+            <div>
+                <div class="information_title"><span>&lt</span> <p>Cos'è il BMI?</p></div>
+                <p>Il BMI (Indice di Massa Corporea) è un valore che mette in relazione peso e altezza per stimare se una persona è sottopeso, normopeso, sovrappeso o obesa.</p>
+            </div>
+            <div>
+                <div class="information_title"><span>&lt</span> <p>Come si calcola il BMI?</p></div>
+                <p>Si calcola dividendo il peso (in kg) per il quadrato dell'altezza (in metri):<br>BMI = peso / altezza^2</p>
+            </div>
+        </div>
     </div>
     <script src="../javascript/BMIScript.js"></script>
 </body>

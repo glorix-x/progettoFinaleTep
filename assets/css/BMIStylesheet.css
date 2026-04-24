@@ -8,28 +8,66 @@
 #box_inserimenti {
     display: flex;
     flex-direction: row;
-    column-gap: 20px;
+    column-gap: 6vw;
 }
 
 .box_inserimento {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    row-gap: 5px;
-}
-
-.label_input {
-
+    position: relative;
+    width: 120px;
 }
 
 .textBox_input {
+    position: relative;
+    width: 100%;
+    border: none;
+    background: transparent;
+    font-size: 20px;
+    padding: 20px 10px 10px;
+    z-index: 10;
+}
 
+.textBox_input ~ span {
+    position: absolute;
+    top: 0;
+    left: 0;
+    padding: 20px 10px 10px;
+    color: #8f8f8f;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    z-index: 5;
+    transition: all 0.5s;
+}
+
+.textBox_input ~ i {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    height: 2px;
+    width: 100%;
+    background-color: #45f3ff;
+    border-radius: 5px;
+    transition: all 0.5s;
+}
+
+.textBox_input:valid ~ span,
+.textBox_input:focus ~ span {
+    transform: translateX(-10px) translateY(-40px);
+}
+
+.textBox_input:valid ~ i,
+.textBox_input:focus ~ i {
+    height: 44px;
+}
+
+.textBox_input:valid,
+.textBox_input:focus {
+    outline: none;
 }
 
 #box_tachimetro {
     position: relative;
     width: 100%;
-    height: max(220px, 18vw);
+    height: max(100px, 18vw);
+    margin-top: 30px;
 }
 
 .indice_tachimetro {
@@ -91,4 +129,66 @@
 #BMI_value {
     margin: 0;
     font-size: 2vw;
+}
+
+#information_box {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    width: 100%;
+}
+
+#information_box > div {
+    background-color: white;
+    border-radius: 15px;
+}
+
+.information_title {
+    border: solid black 1px;
+    border-radius: 15px;
+    padding: 10px 20px 10px 20px;
+    display: flex;
+    flex-direction: row;
+    column-gap: 10px;
+    align-items: center;
+}
+
+.information_title p {
+    margin: 0;
+    font-size: 30px;
+    transition: all 1s;
+}
+
+.information_title ~ p {
+    transition: all 1s;
+    height: 0;
+    overflow: hidden;
+    margin: 0;
+}
+
+.information_title span {
+    display: block;
+    transform: rotate(-90deg);
+    font-size: 30px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-weight: bold;
+    transition: all 1s;
+}
+
+#information_box > div:hover {
+    background-color: rgba(255, 255, 255, 0.87);
+}
+
+#information_box > div:hover > .information_title p {
+
+}
+
+#information_box > div:hover > .information_title ~ p {
+    display: block;
+    padding: 20px;
+    height: 100px;
+}
+
+#information_box > div:hover > .information_title span {
+    transform: rotate(90deg);
 }

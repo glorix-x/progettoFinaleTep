@@ -281,13 +281,7 @@ function resocontoFinale() {
 
     let span = document.getElementById("punteggio")
 
-    if(score / punteggio_max * 100 < 40) {
-        span.classList.add("basso")
-    } else if(score / punteggio_max * 100 < 60) {
-        span.classList.add("medio")
-    } else {
-        span.classList.add("ottimo")
-    }
+    span.style.color = `rgb(${255 - score / punteggio_max * 255}, ${score / punteggio_max * 255}, 0)`
 }
 
 reset()

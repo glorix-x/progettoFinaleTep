@@ -56,3 +56,45 @@ function animazioneValoreBMI(inizio, tagNum, durata, valorePrecedente, nuovoValo
         requestAnimationFrame((timestamp) => animazioneValoreBMI(inizio, tagNum, durata, valorePrecedente, nuovoValore, timestamp))
     }
 }
+
+for(let el of document.getElementById("information_box").childNodes) {
+    if(el.nodeName != "DIV") {
+        continue
+    }
+    let information = null
+    for(let p of el.childNodes) {
+        if(p.nodeName != "P") {
+            continue
+        }
+        if(p.classList.contains("information")) {
+            information = p
+            break
+        }
+    }
+
+    let height = information.scrollHeight
+    
+    el.addEventListener("mouseenter", () => {
+        information.style.height = height + "px"
+    })
+
+    el.addEventListener("mouseleave", () => {
+        information.style.height = "0px"
+    })
+
+    information.style.height = "0px"
+}
+
+document.body.addEventListener("resize", setWidth)
+setWidth()
+
+function setWidth() {
+    for(let el of document.getElementsByClassName("information_title")) {
+        for(let p of el.childNodes) {
+            if(p.nodeName != "P") {
+                continue
+            }
+            p.style.width = p.scrollWidth + 10 + "px"
+        }
+    }
+}

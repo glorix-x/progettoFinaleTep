@@ -135,7 +135,7 @@
     display: flex;
     flex-direction: column;
     align-items: stretch;
-    width: 100%;
+    width: min(800px, max(200px, 60%));
 }
 
 #information_box > div {
@@ -151,17 +151,19 @@
     flex-direction: row;
     column-gap: 10px;
     align-items: center;
+    position: relative;
 }
 
 .information_title p {
     margin: 0;
-    font-size: 30px;
+    font-size: min(30px, max(12px, 2vw));
     transition: all 1s;
+    position: absolute;
+    left: 8%;
 }
 
 .information_title ~ p {
     transition: all 1s;
-    height: 0;
     overflow: hidden;
     margin: 0;
 }
@@ -169,24 +171,24 @@
 .information_title span {
     display: block;
     transform: rotate(-90deg);
-    font-size: 30px;
+    font-size: min(30px, max(10px, 2vw));
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     font-weight: bold;
-    transition: all 1s;
+    transition: transform 1s;
 }
 
-#information_box > div:hover {
-    background-color: rgba(255, 255, 255, 0.87);
+#information_box > div:hover > .information_title {
+    background-color: rgba(255, 255, 255, 0.564);
 }
 
 #information_box > div:hover > .information_title p {
-
+    left: 100%;
+    transform: translate(-100%, 0);
 }
 
 #information_box > div:hover > .information_title ~ p {
     display: block;
     padding: 20px;
-    height: 100px;
 }
 
 #information_box > div:hover > .information_title span {

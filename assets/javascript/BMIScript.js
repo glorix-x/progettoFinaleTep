@@ -76,25 +76,23 @@ for(let el of document.getElementById("information_box").childNodes) {
     
     el.addEventListener("mouseenter", () => {
         information.style.height = height + "px"
+        information.style.padding = "20px"
     })
 
     el.addEventListener("mouseleave", () => {
         information.style.height = "0px"
+        information.style.padding = "0 20px 0 20px"
     })
 
     information.style.height = "0px"
+    information.style.padding = "0 20px 0 20px"
 }
 
-document.body.addEventListener("resize", setWidth)
-setWidth()
-
-function setWidth() {
-    for(let el of document.getElementsByClassName("information_title")) {
-        for(let p of el.childNodes) {
-            if(p.nodeName != "P") {
-                continue
-            }
-            p.style.width = p.scrollWidth + 10 + "px"
+for(let el of document.getElementsByClassName("information_title")) {
+    for(let p of el.childNodes) {
+        if(p.nodeName != "P") {
+            continue
         }
+        p.style.width = p.scrollWidth + 10 + "px"
     }
 }

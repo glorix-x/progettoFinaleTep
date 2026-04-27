@@ -128,7 +128,7 @@
 
 #BMI_value {
     margin: 0;
-    font-size: 2vw;
+    font-size: max(20px, 2vw);
 }
 
 #information_box {
@@ -139,33 +139,39 @@
 }
 
 #information_box > div {
-    background-color: white;
+    background-color: #408A71;
     border-radius: 15px;
 }
 
 .information_title {
+    background-color: #285A48;
     border: solid black 1px;
-    border-radius: 15px;
+    border-radius: min(15px, max(5px, 3vw));
     padding: 10px 20px 10px 20px;
     display: flex;
     flex-direction: row;
     column-gap: 10px;
     align-items: center;
     position: relative;
+    height: 2vw;
 }
 
 .information_title p {
     margin: 0;
-    font-size: min(30px, max(12px, 2vw));
-    transition: all 1s;
+    font-size: min(30px, max(10px, 2vw));
+    transition: transform 1s ease,
+    left 1s ease;
     position: absolute;
-    left: 8%;
+    left: 10%;
 }
 
 .information_title ~ p {
-    transition: all 1s;
+    transition: height 1s ease,
+    padding 1s ease;
     overflow: hidden;
     margin: 0;
+    padding: 0 20px 0 20px;
+    font-size: 1.5vw;
 }
 
 .information_title span {
@@ -175,20 +181,17 @@
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     font-weight: bold;
     transition: transform 1s;
+    position: absolute;
+    left: 4%;
 }
 
 #information_box > div:hover > .information_title {
-    background-color: rgba(255, 255, 255, 0.564);
+    background-color: #285a48d6;
 }
 
 #information_box > div:hover > .information_title p {
     left: 100%;
     transform: translate(-100%, 0);
-}
-
-#information_box > div:hover > .information_title ~ p {
-    display: block;
-    padding: 20px;
 }
 
 #information_box > div:hover > .information_title span {

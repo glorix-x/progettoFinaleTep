@@ -1,170 +1,170 @@
-// ===============================
-// SELEZIONE ELEMENTI DOM
-// ===============================
-let form = document.getElementById("viaggiForm");
-let risultato = document.getElementById("risultato");
+const isLoginPage = document.getElementById("loginForm") !== null;
+const isSignInPage = document.getElementById("LoginForm") !== null;
 
+
+let form = document.getElementById(isLoginPage ? "loginForm" : "LoginForm");
 let nickname = document.getElementById("nickname");
 let password = document.getElementById("password");
+
+
+let mail = document.getElementById("mail");
 let verificaPassword = document.getElementById("verificaPassword");
-let dataPartenza = document.getElementById("dataPartenza");
-let dataRitorno = document.getElementById("dataRitorno");
-let destinazione = document.getElementById("destinazione");
-let tipologia = document.getElementById("tipologia");
-let numeroPartecipanti = document.getElementById("numeroPartecipanti");
+let dataNascita = document.getElementById("dataPartenza"); // ID dal tuo HTML
+
 
 let errNickname = document.getElementById("errNickname");
 let errPassword = document.getElementById("errPassword");
+let errMail = document.getElementById("errMail");
 let errVerifica = document.getElementById("errVerifica");
-let errDataPartenza = document.getElementById("errDataPartenza");
-let errDataRitorno = document.getElementById("errDataRitorno");
-let errDestinazione = document.getElementById("errDestinazione");
-let errTipologia = document.getElementById("errTipologia");
-let errNumeroPartecipanti = document.getElementById("errNumeroPartecipanti");
+let errDataNascita = document.getElementById("errDataPartenza");
 
-// ===============================
+
 // REGEX
-// ===============================
 let regexNickname = /^.{3,}$/;
 let regexPassword = /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$/;
+let regexMail = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 let regexData = /^\d{4}-\d{2}-\d{2}$/;
-let regexDestinazione = /^.{3,}$/;
-let regexPartecipanti = /^[1-9]\d*$/;
 
-// ===============================
-// FUNZIONI ERRORE
-// ===============================
-function mostraErrore(input, span, messaggio){
-    span.textContent = messaggio;
-    input.classList.add("errore");
+//errore
+function mostraErrore(input, span, messaggio) {
+    if (span) {
+        span.textContent = messaggio;
+        span.style.color = "#dc2626";
+        span.style.fontSize = "0.85rem";
+        span.style.display = "block";
+        span.style.marginTop = "4px";
+    }
+    if (input) input.classList.add("errore");
 }
 
-function rimuoviErrore(input, span){
-    span.textContent = "";
-    input.classList.remove("errore");
+function rimuoviErrore(input, span) {
+    if (span) span.textContent = "";
+    if (input) input.classList.remove("errore");
 }
 
-// ===============================
-// VALIDAZIONE BLUR
-// ===============================
-nickname.addEventListener("blur", function(){
-    if(!regexNickname.test(nickname.value)) mostraErrore(nickname, errNickname, "Minimo 3 caratteri");
-    else rimuoviErrore(nickname, errNickname);
-});
+//login
+if (nickname) {
+    nickname.addEventListener("blur", function() {
+        if (!regexNickname.test(nickname.value)) 
+            mostraErrore(nickname, errNickname, "Minimo 3 caratteri");
+        else 
+            rimuoviErrore(nickname, errNickname);
+    });
+}
 
-password.addEventListener("blur", function(){
-    if(!regexPassword.test(password.value)) mostraErrore(password, errPassword, "Min 8 caratteri con lettere e numeri");
-    else rimuoviErrore(password, errPassword);
-});
+if (password) {
+    password.addEventListener("blur", function() {
+        if (!regexPassword.test(password.value)) 
+            mostraErrore(password, errPassword, "Min 8 caratteri con lettere e numeri");
+        else 
+            rimuoviErrore(password, errPassword);
+    });
+}
 
-verificaPassword.addEventListener("blur", function(){
-    if(verificaPassword.value !== password.value || verificaPassword.value === "") mostraErrore(verificaPassword, errVerifica, "Le password non coincidono");
-    else rimuoviErrore(verificaPassword, errVerifica);
-});
-
-dataPartenza.addEventListener("blur", function(){
-    if(!regexData.test(dataPartenza.value)) mostraErrore(dataPartenza, errDataPartenza, "Formato corretto: AAAA-MM-GG");
-    else rimuoviErrore(dataPartenza, errDataPartenza);
-});
-
-dataRitorno.addEventListener("blur", function(){
-    if(!regexData.test(dataRitorno.value)){
-        mostraErrore(dataRitorno, errDataRitorno, "Formato corretto: AAAA-MM-GG");
-        return;
+//sign in
+if (isSignInPage) {
+    
+    if (mail) {
+        mail.addEventListener("blur", function() {
+            if (!regexMail.test(mail.value)) 
+                mostraErrore(mail, errMail, "Inserisci una mail valida");
+            else 
+                rimuoviErrore(mail, errMail);
+        });
     }
 
-    let partenza = new Date(dataPartenza.value);
-    let ritorno = new Date(dataRitorno.value);
-
-    if(ritorno <= partenza) {
-        mostraErrore(dataRitorno, errDataRitorno, "La data di ritorno deve essere successiva");
-        return;
+    if (verificaPassword) {
+        verificaPassword.addEventListener("blur", function() {
+            if (verificaPassword.value !== password.value || verificaPassword.value === "") 
+                mostraErrore(verificaPassword, errVerifica, "Le password non coincidono");
+            else 
+                rimuoviErrore(verificaPassword, errVerifica);
+        });
     }
 
-    let durata = (ritorno - partenza)/(1000*60*60*24);
-    if(durata > 30) mostraErrore(dataRitorno, errDataRitorno, "Il viaggio non può superare 30 giorni");
-    else rimuoviErrore(dataRitorno, errDataRitorno);
-});
-
-destinazione.addEventListener("blur", function(){
-    if(!regexDestinazione.test(destinazione.value)) mostraErrore(destinazione, errDestinazione, "Minimo 3 caratteri");
-    else rimuoviErrore(destinazione, errDestinazione);
-});
-
-tipologia.addEventListener("blur", function(){
-    if(tipologia.value === "") mostraErrore(tipologia, errTipologia, "Seleziona una tipologia valida");
-    else rimuoviErrore(tipologia, errTipologia);
-});
-
-numeroPartecipanti.addEventListener("blur", function(){
-    if(!regexPartecipanti.test(numeroPartecipanti.value)) mostraErrore(numeroPartecipanti, errNumeroPartecipanti, "Inserisci un numero intero positivo");
-    else rimuoviErrore(numeroPartecipanti, errNumeroPartecipanti);
-});
-
-// ===============================
-// SUBMIT
-// ===============================
-form.addEventListener("submit", function(e){
-    e.preventDefault();
-    risultato.innerHTML = "";
-
-    // controlla errori visivi
-    if(document.querySelectorAll(".errore").length > 0) return;
-
-    // controlla password
-    if(verificaPassword.value !== password.value || verificaPassword.value === ""){
-        mostraErrore(verificaPassword, errVerifica, "Le password non coincidono");
-        return;
+    if (dataNascita) {
+        dataNascita.addEventListener("blur", function() {
+            if (!regexData.test(dataNascita.value)) {
+                mostraErrore(dataNascita, errDataNascita, "Formato corretto: AAAA-MM-GG");
+                return;
+            }
+            //data futura
+            let dataInserita = new Date(dataNascita.value);
+            let oggi = new Date();
+            
+            if (dataInserita > oggi) {
+                mostraErrore(dataNascita, errDataNascita, "La data non può essere futura");
+                return;
+            }
+            //min 13 anni
+            let eta = oggi.getFullYear() - dataInserita.getFullYear();
+            let meseDiff = oggi.getMonth() - dataInserita.getMonth();
+            if (meseDiff < 0 || (meseDiff === 0 && oggi.getDate() < dataInserita.getDate())) {
+                eta--;
+            }
+            
+            if (eta < 13) {
+                mostraErrore(dataNascita, errDataNascita, "Devi avere almeno 13 anni");
+                return;
+            }
+            
+            rimuoviErrore(dataNascita, errDataNascita);
+        });
     }
+}
 
-    // date
-    let partenza = new Date(dataPartenza.value);
-    let ritorno = new Date(dataRitorno.value);
-    if(ritorno <= partenza){
-        mostraErrore(dataRitorno, errDataRitorno, "La data di ritorno deve essere successiva");
-        return;
-    }
-    let durata = (ritorno - partenza)/(1000*60*60*24);
-    if(durata > 30){
-        mostraErrore(dataRitorno, errDataRitorno, "Il viaggio non può superare 30 giorni");
-        return;
-    }
-
-    // ===============================
-    // RIEPILOGO
-    // ===============================
-    let titolo = document.createElement("h2");
-    titolo.textContent = "Riepilogo del viaggio:";
-    risultato.appendChild(titolo);
-
-    let campi = [
-        {label: "Nickname", value: nickname.value},
-        {label: "Data di partenza", value: dataPartenza.value},
-        {label: "Data di ritorno", value: dataRitorno.value},
-        {label: "Destinazione", value: destinazione.value},
-        {label: "Tipologia di viaggio", value: tipologia.value},
-        {label: "Numero di partecipanti", value: numeroPartecipanti.value},
-        {label: "Durata del viaggio", value: durata + " giorni"}
-    ];
-
-    for(let i=0; i<campi.length; i++){
-        let p = document.createElement("p");
-        p.textContent = campi[i].label + ": " + campi[i].value;
-        risultato.appendChild(p);
-    }
-
-    let messaggio = document.createElement("p");
-    messaggio.textContent = "Un'organizzazione efficace è la chiave per un viaggio perfetto!";
-    risultato.appendChild(messaggio);
+//controllo validità
+document.querySelectorAll(".registrati").forEach(link => {
+    link.addEventListener("click", function(e) {
+        e.preventDefault();  
+        
+        let valido = true;
+        
+        if (!regexNickname.test(nickname.value)) {
+            mostraErrore(nickname, errNickname, "Minimo 3 caratteri");
+            valido = false;
+        }
+        
+        if (!regexPassword.test(password.value)) {
+            mostraErrore(password, errPassword, "Min 8 caratteri con lettere e numeri");
+            valido = false;
+        }
+        
+        if (isSignInPage) {
+            if (!regexMail.test(mail.value)) {
+                mostraErrore(mail, errMail, "Inserisci una mail valida");
+                valido = false;
+            }
+            
+            if (verificaPassword.value !== password.value || verificaPassword.value === "") {
+                mostraErrore(verificaPassword, errVerifica, "Le password non coincidono");
+                valido = false;
+            }
+            
+            if (!regexData.test(dataNascita.value)) {
+                mostraErrore(dataNascita, errDataNascita, "Formato corretto: AAAA-MM-GG");
+                valido = false;
+            } else {
+                let dataInserita = new Date(dataNascita.value);
+                let oggi = new Date();
+                if (dataInserita > oggi) {
+                    mostraErrore(dataNascita, errDataNascita, "La data non può essere futura");
+                    valido = false;
+                }
+            }
+        }
+        
+        if (valido) {
+            window.location.href = this.href;
+        }
+    });
 });
 
-// ===============================
-// RESET
-// ===============================
-form.addEventListener("reset", function(){
-    risultato.innerHTML = "";
-    let spanErrori = document.querySelectorAll("span");
-    spanErrori.forEach(function(s){ s.textContent = ""; });
-    let inputs = document.querySelectorAll("input, select");
-    inputs.forEach(function(inp){ inp.classList.remove("errore"); });
+//ellimina il mesg. di errore una volta ricliccato
+document.querySelectorAll("input").forEach(input => {
+    input.addEventListener("focus", function() {
+        let span = document.getElementById("err" + this.id.charAt(0).toUpperCase() + this.id.slice(1));
+        if (this.id === "dataPartenza") span = document.getElementById("errDataPartenza");
+        rimuoviErrore(this, span);
+    });
 });

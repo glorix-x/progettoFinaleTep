@@ -1,14 +1,41 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Poppins:wght@500;600;700&display=swap" rel="stylesheet">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Login</title>
     <link rel="stylesheet" href="../css/stylesheet.css">
+    <link rel="stylesheet" href="../css/form.css">
+    <script src="..\javascript\form.js" defer></script>
+
 </head>
 <body>
-    <div id="title_container">
-        <h1>HEALTHY HABITS</h1>
-    </div>
+    <div class="contenitore">
+        <h1>Login</h1>
+        <form id="loginForm">
+    
+            <label>
+                <p>
+                Nickname:
+                <input type="text" id="nickname">
+                <span id="errNickname"></span>
+                </p>
+            </label><br>
+    
+            <label>
+                <p>
+                    Password:
+                    <input type="password" id="password">
+                    <span id="errPassword"></span>
+                </p>
+            </label><br>
+    
+            <a href="../../index.html" class="registrati">Login</a>
+        </form>
+    
+
 </body>
 </html>

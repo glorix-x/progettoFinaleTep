@@ -7,7 +7,7 @@ body {
     color: #091413;
     font-size: 20px;
     font-family: fantasy, Cochin, Georgia, Times, "Times New Roman", serif;
-    background-color: #B0E4CC;
+    background-color: #c6f8e0;
     font-family: var(--font-body);
     font-weight: 500;
     line-height: 1.6;
@@ -19,25 +19,41 @@ button {
 }
 
 #title_container {
-    background-color: #B0E4CC;
+    background-color: #c6f8e0;
     display: flex;
     align-items: center;
     justify-content: space-between;
     padding: 2vh;
 }
-.buttoni{
+.buttoni {
     display: flex;
-    gap: 1vh;
+    gap: 1.2rem;
 }
-.registrati{
-    border: #091413;
-    background-color: #408A71;
-    border-radius: 2.5vh;
-    padding: 2vh;
+
+.registrati {
+    display: inline-block;          
+    text-decoration: none;           
+    background-color: #52b091;
+    color: black;
+    border: none;   
+    border-radius: 1.5vh;
+    padding: 1rem 2.4rem;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 500;
+    font-size: 0.95rem;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    text-align: center;
+}
+
+.registrati:hover {
+    background-color: #2a624d;
+    color:rgb(255, 255, 255) ;
+    transform: translateY(-1px);
 }
 
 #content {
-    background-color: #B0E4CC;
+    background-color: #c6f8e0;
     padding: 20px;
     display: flex;
     flex-direction: row;
@@ -50,7 +66,7 @@ button {
     border-radius: 20px;
 }
 .navBar {
-    background-color: #285A48;
+    background-color: #52b091;
     border-radius: 20px;
     margin: 0 2%;
     overflow: visible;
@@ -78,7 +94,8 @@ button {
 }
 
 .menu a:hover {
-    background-color: #408A71;
+    background-color: #367660;
+    color:#ffffff;
     border-radius: 20px;
 }
 
@@ -88,7 +105,7 @@ button {
     top: 100%;
     left: 0;
     min-width: 100%;
-    background-color: #285A48;
+    background-color: #52b091;
     list-style: none;
     margin: 0;
     padding: 0;

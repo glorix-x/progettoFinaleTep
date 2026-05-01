@@ -4,7 +4,9 @@
 <head>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Poppins:wght@500;600;700&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Poppins:wght@500;600;700&display=swap"
+        rel="stylesheet">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Home</title>
@@ -35,12 +37,17 @@
             </li>
         </ul>
     </nav>
-    <div id="content">
-        <div id="post-it"><img src="https://www.bolognatoday.it/~media/horizontal-hi/11047908541096/ciccio-gamer-2.jpg" class="ciccio"></div>
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Autem officiis eum modi non voluptas fugit
-            exercitationem quo ad? Voluptatum, provident? Ad quisquam nostrum, molestiae dolor consectetur cumque
-            accusantium necessitatibus at.</p>
+    <div class="main-container">
+        <div class="post-it-wrapper">
+            <button id="btnPrec" class="nav-btn">&lt;</button>
+            <div class="post-it">
+                <p id="testoConsiglio"></p>
+            </div>
+            <button id="btnSucc" class="nav-btn">&gt;</button>
+        </div>
     </div>
+
+    <script src="assets/javascript/PostItScript.js"></script>
 </body>
 
 </html>

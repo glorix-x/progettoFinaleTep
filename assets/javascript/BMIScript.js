@@ -32,10 +32,22 @@ function calcoloBMI() {
 
     BMI = Math.max(min_BMI, BMI)
     BMI = Math.min(max_BMI, BMI)
-
+        let messaggio = ""
+    
+    if (BMI < 18.5) {
+        messaggio = "Sottopeso"
+    } else if (BMI < 25) {
+        messaggio = "Peso normale"
+    } else if (BMI < 30) {
+        messaggio = "Sovrappeso"
+    } else if (BMI > 30){
+        messaggio = "obesità"
+    }
+    document.getElementById("BMI_message").innerText = messaggio
+    document.getElementById("BMI_message").style.color = colori[parseInt((BMI - min_BMI) / 2.5)]
     requestAnimationFrame((timestamp) => animazioneValoreBMI(null, document.getElementById("BMI_value"), 1500, BMI_precedente, BMI, timestamp))
-
     document.getElementById("lancetta_tachimetro").style.transform = `translate(-60%, -47%) rotate(${(BMI - min_BMI) / ampiezza_tachimetro * 180 + rotazione_iniziale}deg)`
+
 }
 
 function animazioneValoreBMI(inizio, tagNum, durata, valorePrecedente, nuovoValore, timestamp) {

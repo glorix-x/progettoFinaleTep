@@ -80,32 +80,32 @@
 }
 
 #i_15.indice_tachimetro {
-    transform: translate(-850%, 140%);
+    transform: translate(-750%, 120%);
     color: #009FB5;
 }
 
 #i_20.indice_tachimetro {
-    transform: translate(-640%, -190%);
+    transform: translate(-620%, -170%);
     color: #00B518;
 }
 
 #i_25.indice_tachimetro {
-    transform: translate(-280%, -390%);
+    transform: translate(-260%, -320%);
     color: #FFCF01;
 }
 
 #i_30.indice_tachimetro {
-    transform: translate(190%, -390%);
+    transform: translate(160%, -320%);
     color: #B56922;
 }
 
 #i_35.indice_tachimetro {
-    transform: translate(500%, -190%);
+    transform: translate(480%, -170%);
     color: #B22C00;
 }
 
 #i_40.indice_tachimetro {
-    transform: translate(650%, 140%);
+    transform: translate(620%, 120%);
     color: #B20200;
 }
 

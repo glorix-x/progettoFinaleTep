@@ -32,7 +32,7 @@ function calcoloBMI() {
 
     BMI = Math.max(min_BMI, BMI)
     BMI = Math.min(max_BMI, BMI)
-        let messaggio = ""
+    let messaggio = ""
     
     if (BMI < 18.5) {
         messaggio = "Sottopeso"
@@ -41,7 +41,7 @@ function calcoloBMI() {
     } else if (BMI < 30) {
         messaggio = "Sovrappeso"
     } else if (BMI > 30){
-        messaggio = "obesità"
+        messaggio = "Obesità"
     }
     document.getElementById("BMI_message").innerText = messaggio
     document.getElementById("BMI_message").style.color = colori[parseInt((BMI - min_BMI) / 2.5)]

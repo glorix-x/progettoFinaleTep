@@ -1,6 +1,9 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+       <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Poppins:wght@500;600;700&display=swap" rel="stylesheet">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login</title>
@@ -11,8 +14,8 @@
 </head>
 <body>
     <div class="contenitore">
-        <h1>Login</h1>
-        <form id="viaggiForm">
+        <h1>Sign In</h1>
+        <form id="LoginForm">
     
             <label>
                 <p>
@@ -21,10 +24,18 @@
                 <span id="errNickname"></span>
                 </p>
             </label><br>
-    
+
             <label>
                 <p>
-                    Password:
+                Mail:
+                <input type="text" id="mail">
+                <span id="errMail"></span>
+                </p>
+            </label><br>
+            
+            <label>
+                <p>
+                Password:
                     <input type="password" id="password">
                     <span id="errPassword"></span>
                 </p>
@@ -40,53 +51,14 @@
     
             <label>
                 <p>
-                Data di partenza:
+                Data di nascita:
                 <input type="text" id="dataPartenza" placeholder="AAAA-MM-GG">
                 <span id="errDataPartenza"></span>
                 </p>
             </label><br>
-    
-            <label>
-                <p>
-                Data di ritorno:
-                <input type="text" id="dataRitorno" placeholder="AAAA-MM-GG">
-                <span id="errDataRitorno"></span>
-                </p>
-            </label><br>
-    
-            <label>
-                <p>
-                Destinazione:
-                <input type="text" id="destinazione">
-                <span id="errDestinazione"></span>
-                </p>
-            </label><br>
-    
-            <label>
-                <p>
-                Tipologia di viaggio:
-                <select id="tipologia">
-                    <option value="">Seleziona...</option>
-                    <option value="Mare">Mare</option>
-                    <option value="Montagna">Montagna</option>
-                    <option value="Città d'arte">Città d'arte</option>
-                    <option value="Avventura">Avventura</option>
-                </select>
-                </p>
-                <span id="errTipologia"></span>
-            </label><br>
-    
-            <label>
-                <p>
-                Numero di partecipanti:
-                <input type="text" id="numeroPartecipanti">
-                <span id="errNumeroPartecipanti"></span>
-                </p>
-            </label><br>
-    
-            <button type="submit">Login</button>
+
+            <a href="../../index.html" class="registrati">Sign in</a>
         </form>
-    
-        <div id="risultato"></div>
+
 </body>
 </html>

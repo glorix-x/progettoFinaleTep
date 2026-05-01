@@ -1,54 +1,100 @@
 html {
-    background-color:#B0E4CC;
+    background-color: #B0E4CC;
 }
 
-body{
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    font-family: 'Inter', sans-serif;
+    background-color: rgba(255, 255, 255, 0.9);
+    max-width: 700px;
+    min-height: 95vh;
+    margin: 1% auto;
+    border-radius: 0.5rem;
+    padding: 40px 32px;
+    box-shadow: 0 4px 24px rgba(0, 0, 0, 0.08);
+}
+
+h1 {
     text-align: center;
-    background-color: #ffffffc5;
-    width: 50%;
-    margin: auto;
-    border: 1px solid rgb(0, 0, 0);
-    margin-top: 3%;
-    margin-bottom: 3%;
-    border-radius: 7% 7% 7%;
+    color: #1c4f3c;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 600;
+    font-size: 2rem;
+    margin-bottom: 32px;
 }
 
-p,h1,h2 {
-    color: rgb(0, 0, 0);
+p {
+    text-align: center;
+    color: #1a3c1a;
+    line-height: 1.6;
+    margin-bottom: 16px;
 }
-label>p {
-    display: inline-block;
+a{
+    position:relative;
+    margin-left: 40% ;
 }
-
 input {
-    color: white;
-    background-color: rgb(231, 232, 181);
+    font-family: 'Inter', sans-serif;
+    display: block;
+    margin: 12px auto;
+    color: #14532d;
+    background-color: #f0fdf4;
+    border: 2px solid #86efac;
+    border-radius: 0.5rem;
+    padding: 12px 16px;
+    width: 100%;
+    max-width: 400px;
+    font-size: 1rem;
+    transition: all 0.2s ease;
+}
+
+input:focus {
+    outline: none;
+    border-color: #22c55e;
+    box-shadow: 0 0 0 3px rgba(34, 197, 94, 0.2);
+    background-color: #ffffff;
 }
 
 
-button {
-    border:none;
-    border-radius: 1.5vh ;
-    padding: 2%;    
-    margin-top: 2%;
-    margin-bottom: 1%;
+footer {
+    flex-shrink: 0;
+    margin-top: auto;
+    padding: 24px 0;
+    text-align: center;
+    color: #1a3c1a;
+    font-size: 0.9rem;
+    border-top: 1px solid #bbf7d0;
+}
+.errore {
+    border-color: #dc2626 !important;
+    background-color: #fef2f2 !important;
 }
 
-
-button[type="submit"] {
-    background-color: #408A71;
-    color: #000000;
-}
-button[type="submit"]:hover {
-    background-color: #2f6553;
-    color: rgb(0, 0, 0);
+span[id^="err"] {
+    display: block;
+    min-height: 20px;  /* evita salti di layout */
 }
 
-button[type="reset"] {
-    background-color: rgb(152, 4, 4);
-    color: white;
-}
-button[type="reset"]:hover {
-    background-color: rgb(255, 0, 0);
-    color: white;
+@media (max-width: 600px) {
+    body {
+        max-width: 95%;
+        padding: 24px 16px;
+        margin: 0 auto;
+    }
+
+    h1 {
+        font-size: 1.5rem;
+    }
+
+    button {
+        width: 100%;
+        max-width: 300px;
+    }
 }

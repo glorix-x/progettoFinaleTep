@@ -21,6 +21,7 @@ function calcoloBMI() {
     if(!regex.test(height_input.value) || !regex.test(weight_input.value)) {
         document.getElementById("lancetta_tachimetro").style.transform = `translate(-60%, -47%) rotate(${rotazione_iniziale}deg)`
         document.getElementById("BMI_value").innerText = "--"
+        document.getElementById("BMI_message").innerText = ""
         document.getElementById("BMI_value").style.color = "black"
         BMI = 15
         return
@@ -98,13 +99,4 @@ for(let el of document.getElementById("information_box").childNodes) {
 
     information.style.height = "0px"
     information.style.padding = "0 20px 0 20px"
-}
-
-for(let el of document.getElementsByClassName("information_title")) {
-    for(let p of el.childNodes) {
-        if(p.nodeName != "P") {
-            continue
-        }
-        p.style.width = p.scrollWidth + 10 + "px"
-    }
 }

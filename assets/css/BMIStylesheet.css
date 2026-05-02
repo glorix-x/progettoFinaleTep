@@ -35,6 +35,7 @@
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     z-index: 5;
     transition: all 0.5s;
+    font-size: 20px;
 }
 
 .textBox_input ~ i {
@@ -132,11 +133,16 @@
     font-size: max(20px, 2vw);
 }
 
+#BMI_message {
+    margin: 0;
+    font-size: max(20px, 2vw);
+}
+
 #information_box {
     display: flex;
     flex-direction: column;
     align-items: stretch;
-    width: min(800px, max(200px, 60%));
+    width: 90%;
 }
 
 #information_box > div {
@@ -154,16 +160,17 @@
     column-gap: 10px;
     align-items: center;
     position: relative;
-    height: 2vw;
+    height: 2.5vw;
 }
 
 .information_title p {
     margin: 0;
-    font-size: min(30px, max(10px, 2vw));
+    font-size: min(30px, max(11px, 2vw));
     transition: transform 1s ease,
     left 1s ease;
     position: absolute;
     left: 10%;
+    width: max(200px, 30vw);
 }
 
 .information_title ~ p {
@@ -172,7 +179,7 @@
     overflow: hidden;
     margin: 0;
     padding: 0 20px 0 20px;
-    font-size: 1.5vw;
+    font-size: max(15px, 1.5vw);
 }
 
 .information_title span {
@@ -193,8 +200,30 @@
 #information_box > div:hover > .information_title p {
     left: 100%;
     transform: translate(-100%, 0);
+    text-align: right;
 }
 
 #information_box > div:hover > .information_title span {
     transform: rotate(90deg);
+}
+
+@media (max-width: 660px) {
+    .textBox_input {
+        font-size: 15px;
+        padding: 20px 5px 0px;
+    }
+    .textBox_input:valid ~ i,
+    .textBox_input:focus ~ i {
+        height: 30px;
+    }
+    .textBox_input ~ span {
+        font-size: 12px;
+    }
+    .textBox_input:valid ~ span,
+    .textBox_input:focus ~ span {
+        transform: translateX(-5px) translateY(-28px);
+    }
+    .box_inserimento {
+        width: 80px;
+    }
 }

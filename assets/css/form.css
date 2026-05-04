@@ -87,9 +87,25 @@ footer {
     h1 {
         font-size: 1.5rem;
     }
+    .registrati {
+        display: inline-block;          
+        text-decoration: none;           
+        background-color: #52b091;
+        color: black;
+        border: none;   
+        border-radius: 5vh;
+        padding: 1rem 2.4rem;
+        font-family: 'Poppins', sans-serif;
+        font-weight: 500;
+        font-size: 0.95rem;
+        cursor: pointer;
+        transition: all 0.2s ease;
+        text-align: center;
+    }
 
-    button {
-        width: 100%;
-        max-width: 300px;
+    .registrati:hover {
+        background-color: #2a624d;
+        color:rgb(255, 255, 255) ;
+        transform: translateY(-1px);
     }
 }

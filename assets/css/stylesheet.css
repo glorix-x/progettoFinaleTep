@@ -40,10 +40,10 @@ button {
     color: black;
     border: none;   
     border-radius: 5vh;
-    padding: max(13px, 1.3vw) max(24px, 2.4vw);
+    padding: 1rem 2.4rem;
     font-family: 'Poppins', sans-serif;
     font-weight: 500;
-    font-size: max(10px, 1.2vw);
+    font-size: 0.95rem;
     cursor: pointer;
     transition: all 0.2s ease;
     text-align: center;
@@ -175,5 +175,8 @@ button {
 @media (max-width: 600px) { /*quando lo schermo è piccolo serve per non tagliarlo*/
   .main-container {
     justify-content: center;
+  }
+  .registrati{
+    padding: 1rem;
   }
 }

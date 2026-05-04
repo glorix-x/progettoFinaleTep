@@ -5,6 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="../css/stylesheet.css">
+    <link rel="stylesheet" href="../css/spiegazione.css">
+    <script src="../javascript/Spiegazione.js"></script>
 </head>
 <body>
     <div id="title_container">
@@ -30,5 +32,68 @@
             </li>
         </ul>
     </nav>
+
+    <div classe="parole">
+        <p>Il sito “Healthy Habits” è una piattaforma dedicata al benessere e alla creazione di abitudini sane nella vita quotidiana.
+        <br>
+        In breve, le sue principali utilità sono:
+        <br>
+        Consigli di benessere quotidiano: mostra suggerimenti semplici da seguire, come bere un bicchiere d’acqua appena svegli.
+        <br>-Sezione “Workout”: offre contenuti legati all’attività fisica e all’allenamento. <span class="tutorial-trigger" onclick="openTutorial()">Tuttorial</span>
+        </ul>
+        </nav>
+        <!-- OVERLAY chiusura -->
+        <div id="tutorialOverlay" onclick="closeTutorial()"></div>
+
+        <!-- PANNELLO TUTORIAL GRANDE -->
+        <div class="tutorial-panel" id="tutorialPanel">
+            <div class="panel-header">
+                <h2>Tutorial</h2>
+                <button class="close-btn" onclick="closeTutorial()">×</button>
+            </div>
+            
+            <div class="panel-body">
+                <div class="tutorial-grid">
+                    <!-- Esempio 1 -->
+                    <div class="tutorial-card">
+                        <img src="../img/wokcerchiato.png" alt="Yoga" class="card-img">
+                        <div class="card-body">
+                            <span class="card-tag">Principiante</span>
+                            <h3 class="card-title">Yoga del Mattino</h3>
+                            <p class="card-text">
+                                Inizia la giornata con energia positiva. Questa sequenza di 20 minuti combina respirazione consapevole e allungamenti dolci per risvegliare corpo e mente.
+                            </p>
+                            <div class="card-meta">
+                                <span></span>
+                                <span> </span>
+                                <span></span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="tutorial-card">
+                        <img src="../img/workoutshows.png" alt="Yoga" class="card-img">
+                        <div class="card-body">
+                            <span class="card-tag">Principiante</span>
+                            <h3 class="card-title">Yoga del Mattino</h3>
+                            <p class="card-text">
+                                Inizia la giornata con energia positiva. Questa sequenza di 20 minuti combina respirazione consapevole e allungamenti dolci per risvegliare corpo e mente.
+                            </p>
+                            <div class="card-meta">
+                                <span></span>
+                                <span> </span>
+                                <span></span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+       <br> -BMI Calculator: permette di calcolare l’indice di massa corporea per valutare il proprio stato di forma.<span class="tutorial-trigger" onclick="openTutorial()">Tuttorial</span>
+
+       <br> -Navigazione organizzata: include una barra con Home, Chi Siamo e un menu “Servizi” per accedere alle varie funzionalità.
+       <br> -Area utenti: possibilità di fare login o registrarsi per accedere a contenuti personalizzati.
+        <br>
+        In generale, è un sito pensato per aiutare gli utenti a migliorare il proprio stile di vita attraverso piccole abitudini quotidiane e strumenti pratici.</p>
+    </div>
 </body>
 </html>

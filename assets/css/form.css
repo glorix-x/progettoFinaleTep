@@ -34,11 +34,11 @@ p {
     text-align: center;
     color: #1a3c1a;
     line-height: 1.6;
-    margin-bottom: 16px;
+    margin-bottom: 1.2rem;
 }
 a{
     position:relative;
-    margin-left: 40% ;
+    margin-left: 27% ;
 }
 input {
     font-family: 'Inter', sans-serif;
@@ -46,12 +46,12 @@ input {
     margin: 12px auto;
     color: #14532d;
     background-color: #f0fdf4;
-    border: 2px solid #86efac;
+    border: 0.1rem solid #86efac;
     border-radius: 0.5rem;
-    padding: 12px 16px;
+    padding: 1rem 1rem;
     width: 100%;
-    max-width: 400px;
-    font-size: 1rem;
+    max-width: 40rem;
+    font-size: 1.2rem;
     transition: all 0.2s ease;
 }
 
@@ -75,11 +75,6 @@ footer {
 .errore {
     border-color: #dc2626 !important;
     background-color: #fef2f2 !important;
-}
-
-span[id^="err"] {
-    display: block;
-    min-height: 20px;  /* evita salti di layout */
 }
 
 @media (max-width: 600px) {

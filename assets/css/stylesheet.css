@@ -39,7 +39,7 @@ button {
     background-color: #52b091;
     color: black;
     border: none;   
-    border-radius: 1.5vh;
+    border-radius: 5vh;
     padding: max(13px, 1.3vw) max(24px, 2.4vw);
     font-family: 'Poppins', sans-serif;
     font-weight: 500;

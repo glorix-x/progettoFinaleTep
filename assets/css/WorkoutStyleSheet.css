@@ -1,0 +1,21 @@
+#contenitore{
+    display: flex;
+    flex-direction:row;
+}
+.allenamenti{
+    border: 2px solid black;
+    padding: 10px;
+    margin: 15% 2%;
+    border-radius: 2.5vh;
+    text-align: center;
+    color: #2a624d;
+    font-weight: bold;
+}
+.allenamenti a{
+    text-decoration: none;
+    color: white;
+    border: #2a624d solid;
+    background-color: #2a624d;
+    padding: 1.5%;
+    border-radius: 20px;
+}

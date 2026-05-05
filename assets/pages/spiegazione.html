@@ -3,97 +3,89 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Healthy Habits</title>
+
     <link rel="stylesheet" href="../css/stylesheet.css">
     <link rel="stylesheet" href="../css/spiegazione.css">
-    <script src="../javascript/Spiegazione.js"></script>
+    <script src="../javascript/Spiegazione.js" defer></script>
 </head>
+
 <body>
-    <div id="title_container">
-        <h1>HEALTHY HABITS</h1>
-        <div class="buttoni">
-            <a href="login.html" class="registrati">Login</a>
-            <a href="registrati.html" class="registrati">Sign in</a>
+
+<div id="title_container">
+        <img class="logo" src="../img/logo.png">
+        <h1 class="Titolo">THRIVE</h1>
+    <div class="buttoni">
+        <a href="login.html" class="registrati">Login</a>
+        <a href="registrati.html" class="registrati">Sign in</a>
+    </div>
+</div>
+
+<nav class="navBar">
+    <ul class="menu">
+        <li><a href="../../index.html">Home</a></li>
+        <li><a href="spiegazione.html">Info</a></li>
+
+        <li class="dropdown">
+            <a href="#">Servizi ▼</a>
+            <ul class="subMenu">
+                <li><a href="healthyHabits.html">Healthy Habits</a></li>
+                <li><a href="workout.html">Workout</a></li>
+                <li><a href="bmiCalculator.html">BMI Calculator</a></li>
+            </ul>
+        </li>
+    </ul>
+</nav>
+
+<div class="parole">
+    <p>
+        Il sito “Healthy Habits” è una piattaforma dedicata al benessere e allo sviluppo di abitudini sane nella vita quotidiana.
+    </p>
+
+    <p>In breve, le sue principali funzionalità sono:</p>
+
+    <p>
+        - Consigli di benessere quotidiano: fornisce suggerimenti semplici da seguire, come bere un bicchiere d’acqua appena svegli.
+        <span class="tutorial-trigger" data-tutorial="water">Tutorial</span>
+    </p>
+
+    <p>
+        - Sezione “Healthy Habits”: offre un breve quiz interattivo pensato per aiutare gli utenti a valutare le proprie abitudini quotidiane
+        <span class="tutorial-trigger" data-tutorial="healthy">Tutorial</span>
+    </p>
+
+    <p>
+        - Sezione “Workout”: offre contenuti legati all’attività fisica e all’allenamento, inclusi tutorial.
+        <span class="tutorial-trigger" data-tutorial="workout">Tutorial</span>
+    </p>
+
+    <p>
+        - Calcolatore BMI: consente agli utenti di calcolare il proprio indice di massa corporea per valutare il proprio stato di forma.
+        <span class="tutorial-trigger" data-tutorial="bmi">Tutorial</span>
+    </p>
+
+    <p>
+        - Area utenti: gli utenti possono accedere o registrarsi per visualizzare contenuti personalizzati.
+        <span class="tutorial-trigger" data-tutorial="user">Tutorial</span>
+    </p>
+
+    <p>
+        Nel complesso, è un sito progettato per aiutare gli utenti a migliorare il proprio stile di vita attraverso piccole abitudini quotidiane e strumenti pratici.
+    </p>
+
+</div>
+
+    <div id="tutorialOverlay"></div>
+
+    <div class="tutorial-panel" id="tutorialPanel">
+        <div class="panel-header">
+            <h2 id="tutorialTitle">Tutorial</h2>
+            <button class="close-btn" id="closeBtn">×</button>
+        </div>
+        <div class="panel-body">
+            <div class="tutorial-grid" id="tutorialContent"></div>
         </div>
     </div>
-    <nav class="navBar">
-        <ul class="menu">
-            <li><a href="../../index.html">Home</a></li>
 
-            <li><a href="spiegazione.html">Chi Siamo</a></li>
-
-            <li class="dropdown">
-                <a href="#">Servizi ▼</a>
-                <ul class="subMenu">
-                    <li><a href="healthyHabits.html">Healthy Habits</a></li>
-                    <li><a href="workout.html">Workout</a></li>
-                    <li><a href="bmiCalculator.html">BMI Calculator</a></li>
-                </ul>
-            </li>
-        </ul>
-    </nav>
-
-    <div classe="parole">
-        <p>Il sito “Healthy Habits” è una piattaforma dedicata al benessere e alla creazione di abitudini sane nella vita quotidiana.
-        <br>
-        In breve, le sue principali utilità sono:
-        <br>
-        Consigli di benessere quotidiano: mostra suggerimenti semplici da seguire, come bere un bicchiere d’acqua appena svegli.
-        <br>-Sezione “Workout”: offre contenuti legati all’attività fisica e all’allenamento. <span class="tutorial-trigger" onclick="openTutorial()">Tuttorial</span>
-        </ul>
-        </nav>
-        <!-- OVERLAY chiusura -->
-        <div id="tutorialOverlay" onclick="closeTutorial()"></div>
-
-        <!-- PANNELLO TUTORIAL GRANDE -->
-        <div class="tutorial-panel" id="tutorialPanel">
-            <div class="panel-header">
-                <h2>Tutorial</h2>
-                <button class="close-btn" onclick="closeTutorial()">×</button>
-            </div>
-            
-            <div class="panel-body">
-                <div class="tutorial-grid">
-                    <!-- Esempio 1 -->
-                    <div class="tutorial-card">
-                        <img src="../img/wokcerchiato.png" alt="Yoga" class="card-img">
-                        <div class="card-body">
-                            <span class="card-tag">Principiante</span>
-                            <h3 class="card-title">Yoga del Mattino</h3>
-                            <p class="card-text">
-                                Inizia la giornata con energia positiva. Questa sequenza di 20 minuti combina respirazione consapevole e allungamenti dolci per risvegliare corpo e mente.
-                            </p>
-                            <div class="card-meta">
-                                <span></span>
-                                <span> </span>
-                                <span></span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="tutorial-card">
-                        <img src="../img/workoutshows.png" alt="Yoga" class="card-img">
-                        <div class="card-body">
-                            <span class="card-tag">Principiante</span>
-                            <h3 class="card-title">Yoga del Mattino</h3>
-                            <p class="card-text">
-                                Inizia la giornata con energia positiva. Questa sequenza di 20 minuti combina respirazione consapevole e allungamenti dolci per risvegliare corpo e mente.
-                            </p>
-                            <div class="card-meta">
-                                <span></span>
-                                <span> </span>
-                                <span></span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-       <br> -BMI Calculator: permette di calcolare l’indice di massa corporea per valutare il proprio stato di forma.<span class="tutorial-trigger" onclick="openTutorial()">Tuttorial</span>
-
-       <br> -Navigazione organizzata: include una barra con Home, Chi Siamo e un menu “Servizi” per accedere alle varie funzionalità.
-       <br> -Area utenti: possibilità di fare login o registrarsi per accedere a contenuti personalizzati.
-        <br>
-        In generale, è un sito pensato per aiutare gli utenti a migliorare il proprio stile di vita attraverso piccole abitudini quotidiane e strumenti pratici.</p>
-    </div>
 </body>
 </html>

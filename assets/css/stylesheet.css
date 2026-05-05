@@ -14,11 +14,38 @@ body {
     flex-direction: column;
     align-items: center;
 }
+.Titolo{
+    font-size: 3.5rem;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 800;
 
+    background: linear-gradient(90deg, #377e64, #52b091, #86efac);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    text-shadow: 0px 4px 15px rgba(0, 0, 0, 0.25);
+    animation: fadeIn 0.8s ease-in-out;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
 button {
     cursor: pointer;
 }
-
+.logo{
+    width: 20%;
+    height: auto;
+}
 #title_container {
     background-color: #c6f8e0;
     display: flex;
@@ -173,7 +200,12 @@ button {
 }
 /*ho usato clamp per rendere responsive il post it*/
 @media (max-width: 600px) { /*quando lo schermo è piccolo serve per non tagliarlo*/
-  .main-container {
+    .Titolo{
+    font-size: 1.5rem;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 600;
+    }
+    .main-container {
     justify-content: center;
   }
   .registrati{

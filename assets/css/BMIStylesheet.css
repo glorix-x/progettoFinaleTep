@@ -143,6 +143,7 @@
     flex-direction: column;
     align-items: stretch;
     width: 90%;
+    margin-bottom: 5rem;
 }
 
 #information_box > div {
@@ -154,7 +155,7 @@
     background-color: #71b79d;
     border: solid rgb(0, 0, 0) 1px;
     border-radius: min(15px, max(5px, 3vw));
-    padding: 10px 20px 10px 20px;
+    padding: 15px 20px 15px 20px;
     display: flex;
     flex-direction: row;
     column-gap: 10px;
@@ -165,7 +166,7 @@
 
 .information_title p {
     margin: 0;
-    font-size: min(30px, max(11px, 2vw));
+    font-size: min(25px, max(11px, 2vw));
     transition: transform 1s ease,
     left 1s ease;
     position: absolute;

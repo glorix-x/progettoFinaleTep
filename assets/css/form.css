@@ -21,13 +21,15 @@ body {
     box-shadow: 0px 0px 50px 1px rgba(0, 0, 0, 0.693);
 }
 
-.logo2{
-    position:absolute;
-    top: 20px;
-    left: 20px;
-    width: 120px;
+
+.logo2 {
+    margin-left: -55%;
+    position: fixed;       
+    width: 10rem;
     height: auto;
+    
 }
+
 h1 {
     text-align: center;
     color: #1c4f3c;
@@ -114,5 +116,8 @@ footer {
         background-color: #2a624d;
         color:rgb(255, 255, 255) ;
         transform: translateY(-1px);
+    }
+    .logo2{
+        width: 5rem;
     }
 }

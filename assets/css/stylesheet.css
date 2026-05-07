@@ -36,9 +36,38 @@ body {
 
 button { cursor: pointer; }
 
-.logo{
-    width: 20%;
-    max-width: 150px;
+.footer {
+    background: #52b091;
+    margin-top: 5%;
+    width: 100%;
+    min-height: auto;          
+    padding: 1.5rem 2rem;      
+    color: rgb(21, 21, 21);
+    display: flex;
+    justify-content: space-around;
+    align-items: center;      
+    gap: clamp(1rem, 4vw, 6rem);
+    text-align: center;
+    flex-wrap: wrap;          
+}
+
+.nome {
+    margin: 0;
+    font-size: clamp(0.85rem, 1.2vw, 1rem);
+    font-weight: 600;
+}
+
+.email {
+    margin: 4px 0 0;
+    font-size: clamp(0.75rem, 1vw, 0.85rem);
+    color: #00000099;
+}
+
+.email:hover {
+    color: #091413;
+}
+.logo {
+    width: clamp(80px, 15vw, 150px);
     height: auto;
 }
 
@@ -123,7 +152,7 @@ button { cursor: pointer; }
     list-style: none;
     padding: 10px 0;
     z-index: 1000;
-    border-radius: 0 0 20px 20px;
+    border-radius: 10px 10px 20px 20px;
     box-shadow: 0 10px 20px rgba(0,0,0,0.1);
 }
 
@@ -196,5 +225,33 @@ button { cursor: pointer; }
         box-shadow: none;
         background-color: #469a7f;
         border-radius: 0;
+    }
+    .footer {
+        background: #469a7f;
+        flex-direction: column;     /* elementi in colonna */
+        gap: 1.2rem;               /* gap fisso e contenuto */
+        padding: 1.5rem 1rem;
+        color: rgba(0, 0, 0, 0.855);
+    }
+
+    .nome {
+        margin: 0;
+        font-size: 0.95rem;
+    }
+
+    .email {
+        margin: 2px 0 0;
+        font-size: 0.85rem;
+        color: #000000;
+        padding-top: 0;            /* rimosso padding-top: 10% eccessivo */
+    }
+
+    .email:hover {
+        color: #ffffff;
+    }
+
+    .logo {
+        width: clamp(100px, 30vw, 140px);
+        margin-bottom: 0.5rem;
     }
 }

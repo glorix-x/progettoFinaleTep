@@ -89,7 +89,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 content.innerHTML = 
                 `<div class="tutorial-card">
                     <img class="card-img" src="../img/utente.png">
-                    <h4>1. Per uttenti nuovi che voglio registrarsi abbiamo Sign In.</h4>
+                    <h4>1. Per utenti nuovi che voglio registrarsi abbiamo il Sign In.</h4>
                 </div>
                 <p class="line"></p>
                 <div class="tutorial-card">
@@ -99,7 +99,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 <p class="line"></p>
                 <div class="tutorial-card">
                     <img class="card-img" src="../img/utente3.png">
-                    <h4>3.Per uttenti già registratu abbiamo il Login.</h4>
+                    <h4>3.Per utenti già registrati abbiamo il Login.</h4>
                 </div>
                 <p class="line"></p>
                 <div class="tutorial-card">

@@ -138,20 +138,6 @@ body > h1 {
     line-height: 1.6;
     font-weight: normal;
 }
-.quiz{
-    display: flex;
-}
-.quiz a {
-    display: inline-block;
-    text-decoration: none;
-    padding: 10px 20px;
-    color: black;
-    background-color: #74d3b3d2;
-    border: 1px solid #2a624d;
-    border-radius: 15px;
-    transition: all 0.4s ease;
-    margin: 1%;
-}
 @media (max-width: 768px) {
     #title_container {
         flex-direction: column;

@@ -239,7 +239,11 @@ button { cursor: pointer; }
     text-decoration: underline;
     font-size: 0.85em;
 }
-
+.testo1 a:hover{
+    color: white;
+    transform: scale(1.1);
+    transition: ease 0.3s;
+}
 @media (max-width: 768px) {
     #title_container {
         flex-direction: column;

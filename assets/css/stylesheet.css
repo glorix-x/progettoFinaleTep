@@ -181,18 +181,18 @@ button { cursor: pointer; }
 }
 
 .post-it-wrapper {
-    display: inline-flex;
+    display: flex;
     align-items: center;
     justify-content: center;
-    gap: 10px;
-    flex-wrap: nowrap;
-    flex-shrink: 0;
+    gap: 5px;
+    width: 100%;
+    max-width: 100%;
 }
 
 .post-it {
     background-color: #fefabc;
-    width: 260px;
-    height: 260px;
+    width: 280px;
+    height: 280px;
     padding: 25px;
     box-shadow: 12px 12px 25px rgba(0,0,0,0.1);
     transform: rotate(-2deg);
@@ -213,11 +213,10 @@ button { cursor: pointer; }
 .nav-btn {
     background: none;
     border: none;
-    font-size: 3rem;
+    font-size: 2.5rem;
     color: #4a7c66;
-    padding: 5px;
+    padding: 0 5px;
     flex-shrink: 0;
-    min-width: 45px;
 }
 
 .testo1 {
@@ -255,8 +254,12 @@ button { cursor: pointer; }
 
     .main-container {
         flex-direction: column;
-        padding: 15px;
-        gap: 30px;
+        padding: 10px;
+        gap: 25px;
+    }
+
+    .post-it-wrapper {
+        gap: 0;
     }
 
     .post-it {
@@ -265,7 +268,7 @@ button { cursor: pointer; }
     }
 
     .nav-btn {
-        font-size: 2.2rem;
+        font-size: 2rem;
     }
 
     .testo1 {

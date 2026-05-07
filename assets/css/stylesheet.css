@@ -63,12 +63,13 @@ button { cursor: pointer; }
 .email {
     margin: 4px 0 0;
     font-size: clamp(0.75rem, 1vw, 0.85rem);
-    color: #00000099;
+    color: #0000006c;
     text-decoration: none;
+    font-size: large;
 }
 
 .email:hover {
-    color: #091413;
+    color: #112423;
 }
 
 .logo {
@@ -235,9 +236,12 @@ button { cursor: pointer; }
 }
 
 .continuaLettura {
-    color: #2a624d;
+    color:#0b6745;
     text-decoration: underline;
     font-size: 0.85em;
+}
+.continuaLettura:hover{
+    color: #2e893d;
 }
 
 @media (max-width: 768px) {

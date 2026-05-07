@@ -104,7 +104,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 <p class="line"></p>
                 <div class="tutorial-card">
                     <img class="card-img3" src="../img/utente4.png">
-                    <h4>4.  Pagina dedicata all reinserimento dei dati per accedere. </h4>
+                    <h4>4.  Pagina dedicata al reinserimento dei dati per accedere. </h4>
                 </div>`;
             }
 

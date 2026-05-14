@@ -1,3 +1,4 @@
+
 let height_input = document.getElementById("input_altezza")
 let weight_input = document.getElementById("input_peso")
 
@@ -10,31 +11,32 @@ const max_BMI = 40
 const regex = /^[0-9]+(\.[0-9]+)?$/
 
 const ampiezza_tachimetro = max_BMI - min_BMI
-const rotazione_iniziale = -90
+const rotazione_iniziale = -90 //immagine originariamente in verticale
 
 const colori = ["#009FB5", "#00B5A8", "#00B518", "#66B500", "#FFCF01", "#B59000", "#B56922", "#F66013", "#B22C00", "#B20200"]
 
-let BMI_precedente = -1
+let BMI_precedente = -1 //bmi non settato
 let BMI = 15
 
 function calcoloBMI() {
-    if(!regex.test(height_input.value) || !regex.test(weight_input.value)) {
-        document.getElementById("lancetta_tachimetro").style.transform = `translate(-60%, -47%) rotate(${rotazione_iniziale}deg)`
-        document.getElementById("BMI_value").innerText = "--"
+    if(!regex.test(height_input.value) || !regex.test(weight_input.value)) { //controlla gli input con la regex
+        document.getElementById("lancetta_tachimetro").style.transform = `translate(-60%, -47%) rotate(${rotazione_iniziale}deg)` //lancetta messa a -90° all'inizio
+        document.getElementById("BMI_value").innerText = "--" //reset
         document.getElementById("BMI_message").innerText = ""
         document.getElementById("BMI_value").style.color = "black"
         BMI = 15
         return
     }
 
-    BMI_precedente = BMI
+    BMI_precedente = BMI //salvo il bmi prec
 
-    BMI = parseFloat(weight_input.value) / Math.pow(parseFloat(height_input.value), 2)
+    BMI = parseFloat(weight_input.value) / Math.pow(parseFloat(height_input.value), 2) //peso/altezza^2
 
-    BMI = Math.max(min_BMI, BMI)
-    BMI = Math.min(max_BMI, BMI)
+    BMI = Math.max(min_BMI, BMI) // se minore di 15 metto uguale a 15
+    BMI = Math.min(max_BMI, BMI) // se maggiore di 40 metto 40 :)
     let messaggio = ""
     
+    //verfico il range per visualizzarlo nel messaggio
     if (BMI < 18.5) {
         messaggio = "Sottopeso"
     } else if (BMI < 25) {
@@ -45,13 +47,13 @@ function calcoloBMI() {
         messaggio = "Obesità"
     }
     document.getElementById("BMI_message").innerText = messaggio
-    document.getElementById("BMI_message").style.color = colori[parseInt((BMI - min_BMI) / 2.5)]
-    requestAnimationFrame((timestamp) => animazioneValoreBMI(null, document.getElementById("BMI_value"), 1500, BMI_precedente, BMI, timestamp))
+    document.getElementById("BMI_message").style.color = colori[parseInt((BMI - min_BMI) / 2.5)] //metto il colore del testo del messaggio in base al risultato
+    requestAnimationFrame((timestamp) => animazioneValoreBMI(null, document.getElementById("BMI_value"), 1500, BMI_precedente, BMI, timestamp)) //passi una funzione che viene eseguita in parallela con tutto il resto
     document.getElementById("lancetta_tachimetro").style.transform = `translate(-60%, -47%) rotate(${(BMI - min_BMI) / ampiezza_tachimetro * 180 + rotazione_iniziale}deg)`
 
 }
 
-function animazioneValoreBMI(inizio, tagNum, durata, valorePrecedente, nuovoValore, timestamp) {
+function animazioneValoreBMI(inizio, tagNum, durata, valorePrecedente, nuovoValore, timestamp) {   //funzione che serve per animare la lancetta
     if(inizio == null) {
         inizio = timestamp
     }

@@ -12,11 +12,6 @@ let errPassword = document.getElementById("errPassword");
 let errVerifica = document.getElementById("errVerifica");
 let errDataPartenza = document.getElementById("errDataPartenza");
 
-let regexNickname = /^.{3,}$/;
-let regexMail = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-let regexPassword = /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$/;
-let regexData = /^\d{4}-\d{2}-\d{2}$/;
-
 function mostraErrore(input, span, messaggio){
     span.textContent = messaggio;
     input.classList.add("errore");

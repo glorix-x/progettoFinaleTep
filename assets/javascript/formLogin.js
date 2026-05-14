@@ -6,11 +6,6 @@ let password = document.getElementById("password");
 let errNickname = document.getElementById("errNickname");
 let errPassword = document.getElementById("errPassword");
 
-
-let regexNickname = /^.{3,}$/;
-let regexPassword = /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$/;
-
-
 function mostraErrore(input, span, messaggio){
     span.textContent = messaggio;
     input.classList.add("errore");

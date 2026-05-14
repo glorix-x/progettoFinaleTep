@@ -1,5 +1,5 @@
 document.addEventListener("DOMContentLoaded", () => {
-    const panel = document.getElementById("tutorialPanel");
+    const panel = document.getElementById("f");
     const overlay = document.getElementById("tutorialOverlay");
     const content = document.getElementById("tutorialContent");
     const title = document.getElementById("tutorialTitle");

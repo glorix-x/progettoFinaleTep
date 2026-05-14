@@ -1,9 +1,9 @@
 document.addEventListener("DOMContentLoaded", () => {
-    const panel = document.getElementById("f");
+    const panel = document.getElementById("tutorialpanel");
     const overlay = document.getElementById("tutorialOverlay");
     const content = document.getElementById("tutorialContent");
     const title = document.getElementById("tutorialTitle");
-    const closeBtn = document.getElementById("closeBtn");
+    const closeBtn = document.getElementById("closeBtn")
 
     // OPEN
     document.querySelectorAll(".tutorial-trigger").forEach(btn => {

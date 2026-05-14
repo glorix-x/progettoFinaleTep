@@ -16,8 +16,6 @@ function rimuoviErrore(input, span){
     input.classList.remove("errore");
 }
 
-
-
 let link = document.getElementsByClassName("registrati")[0];
 
 link.addEventListener("click", function(e){

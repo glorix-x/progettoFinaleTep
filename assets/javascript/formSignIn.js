@@ -1,5 +1,4 @@
 let form = document.getElementById("SignInForm");
-
 let nickname = document.getElementById("nickname");
 let mail = document.getElementById("mail");
 let password = document.getElementById("password");

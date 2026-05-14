@@ -1,14 +1,17 @@
-document.addEventListener("DOMContentLoaded", () => {
-    const panel = document.getElementById("tutorialpanel");
+//prendo gli elementi del html e le metto nelle variabili
+//si fa perchè se si mette il .js prima dei contenuti necessari restituisce null
+document.addEventListener("DOMContentLoaded", () => {//funzione richiamata quando caricato il DOM
+    const panel = document.getElementById("tutorialPanel");
     const overlay = document.getElementById("tutorialOverlay");
     const content = document.getElementById("tutorialContent");
     const title = document.getElementById("tutorialTitle");
     const closeBtn = document.getElementById("closeBtn")
 
-    // OPEN
+    // funzione che apre il tutorial
     document.querySelectorAll(".tutorial-trigger").forEach(btn => {
         btn.addEventListener("click", () => {
 
+            //restituisce il tipo di btn
             const type = btn.dataset.tutorial;
 
             if (type === "water") {
@@ -107,9 +110,10 @@ document.addEventListener("DOMContentLoaded", () => {
                     <h4>4.  Pagina dedicata al reinserimento dei dati per accedere. </h4>
                 </div>`;
             }
-
+            //aggiunge la classe active a panel e overlay rendendolo visibile
             panel.classList.add("active");
             overlay.classList.add("active");
+            //nasconde la barra laterale
             document.body.style.overflow = "hidden";
         });
     });
@@ -123,6 +127,7 @@ document.addEventListener("DOMContentLoaded", () => {
         if (e.key === "Escape") closeTutorial();
     });
 
+    //funzione che rimuove la classe attivo
     function closeTutorial() {
         panel.classList.remove("active");
         overlay.classList.remove("active");

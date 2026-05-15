@@ -151,32 +151,43 @@ function choose(btn_to_check) {
 function nextQuestion() {
     previous_score = score
 
+    //Se non siamo alla prima domanda vado a controllare quale risposta è stata scelta e salvo il valore corrispondente
     if(current_question != 0) {
         for(let btn of choices) {
             if(btn.checked) {
+                //Aggiungo il punteggio a quello totale
                 score += parseInt(btn.value)
+                //Aggiungo il punteggio alla singola categoria
                 punteggio_per_categoria[questionario[current_question - 1].categoria] += parseInt(btn.value)
+                //Aggiungo il punteggio alla singola domanda
                 questionario[current_question - 1].risultato = parseInt(btn.value)
                 break;
             }
         }
     }
 
+    //Aggiorno la barra
     requestAnimationFrame((timestamp) => barAnimation(null, document.getElementById("barra_salute"), score, previous_score, punteggio_max, 500, timestamp))
 
+    //Se sono finite le domande richiamo resocontoFinale
     if(current_question >= questionario.length) {
         resocontoFinale()
     } else {
+        //Azzero le scelte che avevo messo per la domanda precedente
         choices = []
+        //Scrivo l'emoji e la domanda nei rispettivi tag
         document.getElementById("domanda").innerText = questionario[current_question].domanda
         document.getElementById("emoji").innerText = questionario[current_question].emoji
         let n = 0
+        //Creo la riga delle possibilità
         let row = document.createElement("div")
         row.classList.add("choice_row")
         let choices_box = document.getElementById("choices_box")
 
+        //Calcello le scelte precedenti dall'HTML
         choices_box.innerHTML = ""
 
+        //Creo tutte le opzioni
         for(let str of questionario[current_question].opzioni) {
             let div = document.createElement("div")
             div.classList.add("choice")
@@ -185,18 +196,21 @@ function nextQuestion() {
 
             let index = questionario[current_question].opzioni.indexOf(str)
 
+            //Creo un oggetto per ogni opzione che contiene il div stesso, il punteggio e se è stato scelto oppure no
             let btn = {
                 button: div,
                 value: questionario[current_question].punteggi[index],
                 checked: false,
             }
 
+            //Aggiungo l'event listener al click per scegliere il btn
             div.addEventListener("click", () => choose(btn))
 
             choices.push(btn)
             
             row.appendChild(div)
             n++
+            //Se raggiungo più di n opzioni cambio riga
             if(n % opzioni_per_riga == 0) {
                 choices_box.appendChild(row)
                 row = document.createElement("div")
@@ -204,31 +218,41 @@ function nextQuestion() {
             }
         }
         choices_box.appendChild(row)
+        //Metto a checked la prima opzione
         choose(choices[0])
         current_question++
     }
 }
 
 function reset() {
+    //Cancello il contenuto di resoconto
     document.getElementById("resoconto").innerHTML = ""
+    //Mostro di nuovo il div con le opzioni
     document.getElementById("survey").classList.remove("hidden")
     current_question = 0
     score = 0
+    //Azzero tutti i punteggi
     for(let domanda of questionario) {
         punteggio_per_categoria[domanda.categoria] = 0
         domanda.risultato = 0
     }
+    //Ricomincio con la prima domanda
     nextQuestion()
 }
 
 function resocontoFinale() {
+    //Nascondo il div contenete il quiz
     document.getElementById("survey").classList.add("hidden")
     let box_resoconto = document.getElementById("resoconto")
+    
+    //Per ogni categoria mostro il punteggio finale
     for(let categoria in punteggio_per_categoria) {
+        //Scrivo il nome della categoria
         let div = document.createElement("div")
         div.classList.add("box_risultato")
         div.appendChild(document.createTextNode(categoria + ": "))
 
+        //creo la barra
         let box_barra = document.createElement("div")
         box_barra.classList.add("box_barra_risultato")
         
@@ -239,9 +263,11 @@ function resocontoFinale() {
         div.appendChild(box_barra)
         box_resoconto.appendChild(div)
 
+        //Aggiorno la barra di ogni categoria
         requestAnimationFrame((timestamp) => barAnimation(null, barra, punteggio_per_categoria[categoria], 0, punteggio_max_per_categoria[categoria], 1000, timestamp))
     }
 
+    //Creo il div suggerimenti e mostro il punteggio finale
     let box_suggerimenti = document.createElement("div")
     let text_punteggio = document.createElement("p")
     text_punteggio.id = "text_punteggio"
@@ -250,12 +276,14 @@ function resocontoFinale() {
     box_suggerimenti.appendChild(text_punteggio)
 
     let s = ""
+    //Se ho fatto un punteggio basso mostro un suggerimento per la domanda
     for(let domanda of questionario) {
         if(domanda.risultato < Math.max(...domanda.punteggi) / 2) {
             s += `<li>${domanda.suggerimento}</li>`
         }
     }
 
+    //Se non c'è nessun suggerimento da dare scrivo un messaggio standard
     let text_suggerimenti
     if(s != "") {
         text_suggerimenti = document.createElement("ul")
@@ -271,17 +299,20 @@ function resocontoFinale() {
 
     box_resoconto.appendChild(box_suggerimenti)
     
+    //Creo il btn di restart
     restart_btn = document.createElement("button")
     restart_btn.innerText = "Ricomincia"
     restart_btn.classList.add("main_btn")
 
+    //Ci connetto la funzione reset()
     restart_btn.addEventListener("click", reset)
 
     box_resoconto.appendChild(restart_btn)
 
+    //Do al punteggio il colore corrispondente della barra
     let span = document.getElementById("punteggio")
-
     span.style.color = `rgb(${255 - score / punteggio_max * 255}, ${score / punteggio_max * 255}, 0)`
 }
 
+//Allo start del programma richiamo reset per far partire il quiz
 reset()

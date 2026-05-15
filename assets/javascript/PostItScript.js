@@ -15,20 +15,20 @@ const btnSucc = document.getElementById('btnSucc');
 const updateTesto = () => {
   testoConsiglio.style.opacity = 0;
   
-  setTimeout(() => { // è una funzione che serve a ritardare ciò che c'è nella funzione, precisamente di 150 millisecondi
+  setTimeout(() => { // è una funzione che serve a ritardare ciò che c'è nella funzione, precisamente di 150 millisecondi, che quindi viene eseguito dopo 150 ms
     testoConsiglio.innerText = tips[index];
     testoConsiglio.style.opacity = 1;
   }, 150);
 };
 
 btnSucc.addEventListener('click', () => {
-  index = (index + 1) % tips.length; //calcola il consiglio successivo
+  index = (index + 1) % tips.length; //calcola il consiglio successivo e ritorna al primo se sono finiti
   updateTesto();
 });
 
 btnPrec.addEventListener('click', () => {
-  index = (index - 1 + tips.length) % tips.length; // calcola il consiglio precedente
+  index = (index - 1 + tips.length) % tips.length; // calcola il consiglio precedente e ritorna all'ultimo se sono finiti
   updateTesto();
 });
 
-document.addEventListener('DOMContentLoaded', updateTesto);
+document.addEventListener('DOMContentLoaded', updateTesto); //per fare in modo che il post-it non sia mai vuoto, al load della pagina carico il primo commento
